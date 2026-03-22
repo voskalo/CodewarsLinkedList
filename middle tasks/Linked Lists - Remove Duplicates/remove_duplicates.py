@@ -5,10 +5,17 @@ class Node(object):
         self.data = data
         self.next = None
 
-def remove_duplicates(head):
+def remove_duplicates(head: 'Node'):
     '''function'''
 
     if head is None or head.next is None:
         return head
+
+    current = head
+
+    while current is not None:
+        if current.data == current.next.data:
+            current.next = current.next.next
+        current = current.next
 
     return head
