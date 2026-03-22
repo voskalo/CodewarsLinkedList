@@ -6,6 +6,19 @@ class Node(object):
         self.data = data
         self.next = next
 
-def get_nth(node, index):
-    ...
-    # Your code goes here.
+def get_nth(node: 'Node', index):
+    '''smth'''
+
+    if not node:
+        raise ValueError
+
+    cur = node
+    for _ in range(index):
+        nxt = cur.next
+
+        cur = nxt
+
+    if nxt:
+        cur = nxt
+
+    return cur
