@@ -7,6 +7,7 @@ class Node(object):
 
 
 def sorted_insert(head: 'Node', data):
+    '''sorted insert'''
     new_node = Node(data)
 
     if not head or data < head.data:
