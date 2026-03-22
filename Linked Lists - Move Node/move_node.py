@@ -20,4 +20,5 @@ def move_node(source: 'Node', dest):
     new_source = source.next
     node_to_move.next = dest
 
+
     return Context(new_source, node_to_move)
