@@ -7,6 +7,7 @@ class Node(object):
 
 
 def sorted_insert(head, data):
-    # Your code goes here.
-    # Make sure to return the head of the list.
-    ...
+    '''funct'''
+
+    new_node = Node(data)
+    return head
