@@ -15,6 +15,7 @@ def reverse(head: 'Node'):
         return head
 
     new = reverse(head.next)
-    head.next = head
+    head.next.next = head
+    head.next = None
 
     return new
