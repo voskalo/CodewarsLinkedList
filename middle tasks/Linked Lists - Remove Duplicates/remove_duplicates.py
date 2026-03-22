@@ -8,4 +8,7 @@ class Node(object):
 def remove_duplicates(head):
     '''function'''
 
-    ...
+    if head is None or head.next is None:
+        return head
+
+    return head
