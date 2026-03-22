@@ -7,15 +7,17 @@ class Node(object):
 
 
 def sorted_insert(head: 'Node', data):
-    '''funct'''
-
     new_node = Node(data)
 
-    if not head:
-        return new_node
-
-    if data < head.data:
+    if not head or data < head.data:
         new_node.next = head
         return new_node
+
+    cur = head
+    while cur.next is not None and cur.next.data <= data:
+        cur = cur.next
+
+    new_node.next = cur.next
+    cur.next = new_node
 
     return head
