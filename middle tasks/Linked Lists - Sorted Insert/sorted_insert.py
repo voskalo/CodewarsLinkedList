@@ -6,12 +6,16 @@ class Node(object):
         self.next = None
 
 
-def sorted_insert(head, data):
+def sorted_insert(head: 'Node', data):
     '''funct'''
 
     new_node = Node(data)
 
     if not head:
+        return new_node
+
+    if data < head.data:
+        new_node.next = head
         return new_node
 
     return head
