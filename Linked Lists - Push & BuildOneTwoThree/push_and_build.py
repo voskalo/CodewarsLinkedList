@@ -6,9 +6,25 @@ class Node:
         self.next = None
 
 def push(head, data):
-    # Your code goes here.
-    return Node(None)
+    '''push'''
+
+    if head is None:
+        head = Node(data)
+        return head
+
+    cur = head
+    head = Node(data)
+    head.next = cur
+    return head
+
+
+
 
 def build_one_two_three():
-    # Your code goes here.
-    return Node(None)
+    '''funct'''
+
+    head = None
+    head = push(head, 3)
+    head = push(head, 2)
+    head = push(head, 1)
+    return head
