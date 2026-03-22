@@ -8,14 +8,15 @@ class Node(object):
 def remove_duplicates(head: 'Node'):
     '''function'''
 
-    if head is None or head.next is None:
+    if not head or not head.next:
         return head
 
     current = head
 
-    while current is not None:
+    while current is not None and current.next is not None:
         if current.data == current.next.data:
             current.next = current.next.next
-        current = current.next
+        else:
+            current = current.next
 
     return head
