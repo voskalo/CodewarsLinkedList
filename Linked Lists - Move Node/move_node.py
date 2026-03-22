@@ -10,7 +10,14 @@ class Context(object):
         self.source = source
         self.dest = dest
 
-def move_node(source, dest):
-    # Your code goes here.
-    # Remember to return the context.
-    return Context(source, dest)
+def move_node(source: 'Node', dest):
+    '''funct'''
+
+    if not source:
+        raise ValueError('List is empty')
+
+    node_to_move = source
+    new_source = source.next
+    node_to_move.next = dest
+
+    return Context(new_source, node_to_move)
