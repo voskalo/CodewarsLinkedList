@@ -6,6 +6,11 @@ class Node():
         self.data = data
         self.next = next
 
-    def stringify(self):
-        '''task func'''
-        ...
+
+def stringify(node: 'Node'):
+    '''task func'''
+
+    if node:
+        return f'{node.data} -> {stringify(node.next)}'
+
+    return 'None'
