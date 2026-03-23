@@ -13,6 +13,28 @@ class Context(object):
         self.second = second
 
 
-def alternating_split(head):
+def alternating_split(head: 'Node'):
     '''smth'''
-    ...
+
+    if not head or not head.next:
+        return head
+
+    first = Node()
+    second = Node()
+
+    cur = head
+    nxt = head.next
+
+    while head.next:
+        if cur:
+            first.next = cur
+        if nxt:
+            second.next = nxt
+
+        if not nxt or not cur:
+            return Context(first.next, second.next)
+
+        cur = first
+        nxt = second
+        first = second.next
+        second = second.next.next
