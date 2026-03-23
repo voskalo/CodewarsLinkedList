@@ -1,13 +1,9 @@
-'''Linked Lists - Alternating Split'''
-
 class Node(object):
-    '''smth'''
     def __init__(self, data=None):
         self.data = data
         self.next = None
 
 class Context(object):
-    '''smth'''
     def __init__(self, first, second):
         self.first = first
         self.second = second
@@ -19,22 +15,28 @@ def alternating_split(head: 'Node'):
     if not head or not head.next:
         raise ValueError('None or 1 el node')
 
-    first = Node()
-    second = Node()
+    first = head
+    second = head.next
 
-    cur = head
-    nxt = head.next
+    first_node = first
+    second_node = second
 
-    while head.next:
-        if cur:
-            first.next = cur
-        if nxt:
-            second.next = nxt
+    cur = head.next.next
 
-        if not nxt or not cur:
-            return Context(first.next, second.next)
+    queue = True
 
-        cur = first
-        nxt = second
-        first = second.next
-        second = second.next.next
+    while cur:
+        if queue:
+            first_node.next = cur
+            first_node = first_node.next
+        else:
+            second_node.next = cur
+            second_node = second_node.next
+
+        queue = not queue
+        cur = cur.next
+
+    first_node.next = None
+    second_node.next = None
+
+    return Context(first, second)
