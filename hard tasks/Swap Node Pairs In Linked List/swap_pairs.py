@@ -26,4 +26,4 @@ def swap_pairs(head: 'Node'):
 
         prev = first
 
-    return node
+    return node.next
