@@ -17,7 +17,7 @@ def alternating_split(head: 'Node'):
     '''smth'''
 
     if not head or not head.next:
-        return head
+        raise ValueError('None or 1 el node')
 
     first = Node()
     second = Node()
