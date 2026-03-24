@@ -11,18 +11,29 @@ def loop_size(node: 'Node'):
     '''smth'''
 
     if not node or not node.next:
-        return node
+        return 0
 
-    visited = {}
-    cur = node
-    idx = 0
 
-    while cur:
-        if cur in visited.keys():
-            return idx - visited[cur]
+    slow = node
+    fast = node
 
-        visited[cur] = idx
-        cur = cur.next
-        idx += 1
+    # перевірили шо цикл є
+    while fast and fast.next:
 
-    return 0
+        slow = slow.next
+        fast = fast.next.next
+
+        if slow == fast:
+            break
+
+    else:
+        return 0
+
+    meet = slow.next
+    res = 1
+
+    while meet != slow:
+        res += 1
+        meet = meet.next
+
+    return res
